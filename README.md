@@ -2,6 +2,8 @@
 
 In this project, you are able to traverse an online fungi identification guide through your own command tool line functionality. 
 
+The data formatted within the series of webpages are accessed as a hierarchical tree organization. Thus, my project works by traversing the tree structure rather than creating it. 
+
 The program will greet you and ask you to proceed when you're ready. It will then provide you with 26 different families of fungi. You are asked to then choose one family to learn more about the family and its members. 
 
 Upon selecting a family, you'll be asked if you want to learn more information about the family in general or if you'd like to select a species of the family to learn more about that species. Even if you select to learn more general family information first, you'll be given the option to select a species after. 
