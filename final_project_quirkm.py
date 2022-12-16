@@ -62,16 +62,16 @@ def extract_img(fungi_div, href_link):
 
 class Fungi:
     def __init__(self):
-        self.name = "Unkown"
-        self.fam_tree =  "Unkown"
-        self.distribution =  "Unkown"
-        self.taxonomy =  "Unkown"
-        self.etymology =  "Unkown"
-        self.culinary =  "Unkown"
-        self.toxicity =  "Unkown"
-        self.mythology =  "Unkown"
-        self.psychoactivity =  "Unkown"
-        self.url =  "Unkown"
+        self.name = "Unknown"
+        self.fam_tree =  "Unknown"
+        self.distribution =  "Unknown"
+        self.taxonomy =  "Unknown"
+        self.etymology =  "Unknown"
+        self.culinary =  "Unknown"
+        self.toxicity =  "Unknown"
+        self.mythology =  "Unknown"
+        self.psychoactivity =  "Unknown"
+        self.url =  "Unknown"
 
 def get_species_details(fungi_url, fungi_name):
 
@@ -233,7 +233,12 @@ def get_fungi_info(): # extracting main fungi page info to traverse through
     for i, key in enumerate(fungi_fam_url_dict.keys()):
         print(f"{i+1}. {key}")
 
-    fungi_select = input(f"Please enter the number of a Fungi Family to learn more about the family and its members. ")
+    fungi_select = input(f"Please enter the number of a Fungi Family to learn more about the family and its members. Or type 'exit' to quit the program. ")
+
+    if fungi_select.lower().strip() == 'exit':
+        print(f"Thanks for participating! Bye!")
+        return
+
     selected_fam_url = tuple(fungi_fam_url_dict.items())[int(fungi_select)-1][1]
     selected_fam_name = tuple(fungi_fam_url_dict.items())[int(fungi_select)-1][0]
 
@@ -307,10 +312,13 @@ def get_fungi_info(): # extracting main fungi page info to traverse through
             for i, key in enumerate(fungi_species_url_dict.keys()): ## ADD TRY EXCEPT CLAUSES?? ugh
                 print(f"{i+1}. {key}")
             select_species = input(f"Please enter the number of a species above to learn more about the fungus. If you'd like to go back to the beginning, type 'restart'. " )
-            selected_species_name = tuple(fungi_species_url_dict.items())[int(select_species)-1][0]
-            selected_species_url =tuple(fungi_species_url_dict.items())[int(select_species)-1][1]
-            selected_species = get_species_details(selected_species_url, selected_species_name)
-            choose_nav(selected_species)
+            if select_species.lower().strip() == 'restart':
+                return get_fungi_info()
+            else:
+                selected_species_name = tuple(fungi_species_url_dict.items())[int(select_species)-1][0]
+                selected_species_url =tuple(fungi_species_url_dict.items())[int(select_species)-1][1]
+                selected_species = get_species_details(selected_species_url, selected_species_name)
+                choose_nav(selected_species)
 
             another_species = input(f"If you'd like to go back to the beginning and choose another fungi family, type 'restart'. If you'd like to go back to select another species in this family, type 'species'. Otherwise, type 'exit' to quit. ")
 
