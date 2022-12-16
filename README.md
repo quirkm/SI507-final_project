@@ -13,3 +13,14 @@ Once you select a specific species, there is a host of different dimensions you 
 After each input prompt, you'll be given options to go back and select a new species within that family or go back to the beginning and select a new family to traverse through. Or you can just exit the program completely. 
 
 Happy foraging!
+
+
+
+Required packages:
+- requests
+- BeautifulSoup
+- time
+- shutil
+- matplotlib.pyplot as plt
+- matplotlib.image as mpimg
+- json
